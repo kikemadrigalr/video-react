@@ -1,6 +1,6 @@
 .carousel {
-  // overflow: auto;
-  overflow-x: hidden;
+  overflow: auto;
+  // overflow-x: hidden;
   padding-left: 30px;
   width: 100%;
   position: relative;
@@ -26,6 +26,34 @@
   opacity: 1;
 }
 
-// .carousel::-webkit-scrollbar {
-//   display: none;
-// }
+//* Tamaño del scroll */
+.carousel::-webkit-scrollbar {
+  // width: 3px;
+  height: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+.carousel::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+.carousel::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  // border-radius: 5px;
+}
+
+.carousel::-webkit-scrollbar-track:hover,
+.carousel::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
