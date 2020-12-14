@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "../assets/styles/components/CarouselItem.scss";
 import playIcon from "../assets/static/play-icon.png";
 import plusIcon from "../assets/static/plus-icon.png";
@@ -28,5 +29,21 @@ const CarouselItem = ({ cover, title, year, contentRating, duration }) => (
     </div>
   </React.Fragment>
 );
+
+//validar el tipo de datos que recibe el componente con proptypes
+CarouselItem.propTypes = {
+  cover: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.number,
+  contentRating: PropTypes.string,
+  duration: PropTypes.number,
+};
+
+// Component.propTypes = {
+//   name: PropTypes.string.isRequired, // obligatorio
+//   lastName: PropTypes.string.isRequired, // obligatorio
+//   age: PropTypes.number, // opcional,
+//   list: PropTypes.array, // opcional
+// };
 
 export default CarouselItem;

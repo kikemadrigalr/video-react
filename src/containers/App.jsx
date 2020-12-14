@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+// import React from "react";
 import Header from "../components/Header";
 import Search from "../components/Search";
 import Categories from "../components/Categories";
 import Carousel from "../components/Carousel";
 import CarouselItem from "../components/CarouselItem";
 import Footer from "../components/Footer";
+// import useInitialState from "../hooks/usenitialState";
 import "../assets/styles/App.scss";
+
+const API = "http://localhost:4001/initialState";
 
 const App = () => {
   //hooks para urilizar estado y hacer peticiones a APi
@@ -15,17 +19,18 @@ const App = () => {
     originals: [],
   });
 
-  //hook useEffet se hará la peticion a la api
+  // hook useEffet se hará la peticion a la api
   useEffect(async () => {
     try {
-      let resp = await fetch("http://localhost:4001/initialState"),
+      let resp = await fetch(API),
         data = await resp.json();
+      setVideos(data);
 
       if (!resp.ok) {
         throw { status: resp.status, statusText: resp.statusText };
       }
 
-      return setVideos(data);
+      return videos;
     } catch (error) {
       let message = error.statusText || "Ocurrio un Error";
       console.error(`Error ${error.status}: ${message}`);
@@ -33,8 +38,9 @@ const App = () => {
   }, []);
 
   //setVideos asigno el resultado de la peticion a videos
-  console.log(videos);
-  console.log(videos.trends);
+  // console.log(videos);
+  // console.log(videos.trends);
+  // const videos = useInitialState(API);
 
   return (
     <div className="App">
